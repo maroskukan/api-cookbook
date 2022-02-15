@@ -1,6 +1,6 @@
 var request = new XMLHttpRequest();
 
-request.open('GET', 'https://hplussport.com/api/products?qty=2&order=name');
+request.open('GET', 'https://hplussport.com/api/products?order=name');
 
 request.onload = function ()
 {
@@ -8,12 +8,19 @@ request.onload = function ()
     var parsedData = JSON.parse(response);
     console.log(parsedData);
 
-    // Access the value for description key of first product
-    var name = parsedData[0].name;
+    for (item in parsedData)
+    {
+        // Itirate through the array of products
+        var name = parsedData[item].name;
+        var products = document.createElement('li');
+        products.innerHTML = name;
+        document.body.appendChild(products);
 
-    var products = document.createElement('li');
-    products.innerHTML = name;
-    document.body.appendChild(products);
+        var imageUrl = parsedData[item].image;
+        var images = document.createElement('img');
+        images.setAttribute('src', imageUrl);
+        document.body.appendChild(images);
+    }
 }
 
 request.send();
