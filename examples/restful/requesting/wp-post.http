@@ -1,0 +1,10 @@
+POST http://localhost/wp-json/wp/v2/posts
+Authorization: Basic user bitnami
+Content-Type: application/json
+
+{
+  "title": "My first post created via the REST API",
+  "content": "It requires WP-API/Basic-Auth plugin to work.",
+  "status": "publish",
+  "author": 1
+}
