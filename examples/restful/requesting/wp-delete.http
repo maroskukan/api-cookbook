@@ -1,2 +1,2 @@
-DELETE http://localhost/wp-json/wp/v2/posts/9
+DELETE http://localhost/wp-json/wp/v2/posts/9?force=true
 Authorization: Basic user bitnami
